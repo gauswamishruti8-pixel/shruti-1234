@@ -8,11 +8,11 @@
 </head>
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <section id="loginPage" class="auth-page">
     <div class="auth-box">
         <h1>🥗 Smart Recipe</h1>
-        <p> Login to Continue</p>
+        <p>Login to Continue</p>
 
         <form id="loginForm">
             <input type="email" id="loginEmail" placeholder="Enter Email" required>
@@ -21,22 +21,20 @@
         </form>
 
         <p>Don't have an account?
-            <a href="#" 
-            onclick="showPage('signupPage')">Create Account</a>
+            <a href="#" onclick="showPage('signupPage')">Create Account</a>
         </p>
     </div>
 </section>
 
-<!-- SIGNUP PAGE -->
+<!-- SIGNUP -->
 <section id="signupPage" class="auth-page hidden">
     <div class="auth-box">
         <h1>Create Account</h1>
-        <p>Join Smart Recipe Today!</p>
 
         <form id="signupForm">
             <input type="text" id="signupName" placeholder="Full Name" required>
             <input type="email" id="signupEmail" placeholder="Email Address" required>
-            <input type="password" id="signupPassword" placeholder="Create Password" required minlength="6">
+            <input type="password" id="signupPassword" placeholder="Create Password" minlength="6" required>
             <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
             <button type="submit">Sign Up</button>
         </form>
@@ -64,24 +62,25 @@
 
 <!-- HOME -->
 <section id="home" class="hero">
-    <div class="hero-content">
+    <div>
         <h1>Welcome to Smart Recipe</h1>
-        <h2>Discover Delicious Recipes From Your Vegetables!</h2>
-        <p>Upload your vegetable photo and discover what delicious food you can prepare.</p>
+        <h2>Make Delicious Food With Your Vegetables!</h2>
+        <p>Upload vegetable photos and explore vegetarian recipes.</p>
         <a href="#scanner" class="main-btn">Explore Recipes</a>
     </div>
 </section>
 
-<!-- SCANNER -->
+<!-- MULTIPLE PHOTO SCANNER -->
 <section id="scanner" class="scanner">
-    <h1>Vegetable Recipe Scanner</h1>
-    <p>Upload a picture of your vegetables to discover recipes.</p>
+    <h1>🥗 Vegetable Recipe Scanner</h1>
+    <p>Select one or more vegetable photos.</p>
 
     <div class="upload-box">
-        <input type="file" id="vegetableImage" accept="image/*">
-        <img id="preview" class="preview hidden" alt="Vegetable preview">
-        <br>
-        <button onclick="findRecipe()">Find Recipe</button>
+        <input type="file" id="vegetableImage" accept="image/*" multiple>
+        <div id="previewContainer" class="preview-grid"></div>
+
+        <button type="button" onclick="findRecipe()">Find Recipe</button>
+        <button type="button" onclick="clearPhotos()">Clear Photos</button>
     </div>
 
     <div id="recipeResult"></div>
@@ -89,40 +88,9 @@
 
 <!-- POPULAR RECIPES -->
 <section id="popular" class="popular">
-    <h1>Popular Recipes</h1>
-    <p>Explore some delicious vegetable recipes.</p>
+    <h1>Popular Vegetarian Recipes</h1>
 
-    <div class="recipe-grid">
-
-        <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600" alt="Vegetable salad">
-            <h2>Vegetable Salad</h2>
-            <p>Fresh and healthy vegetable salad.</p>
-            <button onclick="showPopularRecipe('salad')">View Recipe</button>
-        </div>
-
-        <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600" alt="Vegetable soup">
-            <h2>Vegetable Soup</h2>
-            <p>Healthy and tasty vegetable soup.</p>
-            <button onclick="showPopularRecipe('soup')">View Recipe</button>
-        </div>
-
-        <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600" alt="Healthy bowl">
-            <h2>Healthy Bowl</h2>
-             <p>Nutritious mixed vegetable bowl.</p>
-            <button onclick="showPopularRecipe('bowl')">View Recipe</button>
-        </div>
-
-        <div class="recipe-card">
-            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600" alt="Vegetable pasta">
-            <h2>Vegetable Pasta</h2>
-            <p>Delicious vegetable pasta.</p>
-            <button onclick="showPopularRecipe('pasta')">View Recipe</button>
-        </div>
-
-    </div>
+    <div class="recipe-grid" id="popularGrid"></div>
     <div id="popularResult"></div>
 </section>
 
@@ -130,32 +98,21 @@
 <section id="about" class="about">
     <h1>About Smart Recipe</h1>
     <p>
-        Smart Recipe is a recipe suggestion website designed to help
-        users prepare delicious food using vegetables available at home.
-        Users can upload vegetable images and explore suitable recipe ideas.
-        Our goal is to make cooking easy, simple and enjoyable.
+        Smart Recipe helps users explore vegetarian recipes
+        using vegetables available at home. Discover ingredients,
+        spices and simple cooking instructions.
     </p>
 
     <div class="features">
-        <div>
-            <h2>📷 Easy Upload</h2>
-            <p>Upload your vegetable image easily.</p>
-        </div>
-        <div>
-            <h2>🍲 Recipe Ideas</h2>
-            <p>Discover different food recipes.</p>
-        </div>
-        <div>
-            <h2>⏰ Save Time</h2>
-            <p>Find simple cooking ideas.</p>
-        </div>
+        <div><h2>📷 Easy Upload</h2><p>Upload multiple photos.</p></div>
+        <div><h2>🍲 Recipes</h2><p>Explore vegetarian dishes.</p></div>
+        <div><h2>⏰ Save Time</h2><p>Find quick cooking ideas.</p></div>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
     <h1>Contact Us</h1>
-    <p>Have any questions? Contact us.</p>
 
     <form id="contactForm">
         <input type="text" placeholder="Your Name" required>
@@ -163,14 +120,14 @@
         <textarea placeholder="Your Message" required></textarea>
         <button type="submit">Submit</button>
     </form>
+
     <p id="contactMessage"></p>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <h2>🥗 Smart Recipe</h2>
     <p>Make Cooking Easy and Enjoyable!</p>
-    <p>© 2026 Smart Recipe. All Rights Reserved.</p>
+    <p>© 2026 Smart Recipe</p>
 </footer>
 
 </div>
