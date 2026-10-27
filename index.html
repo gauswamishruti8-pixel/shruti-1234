@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Recipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<!-- LOGIN PAGE -->
+<section id="loginPage" class="auth-page">
+    <div class="auth-box">
+        <h1>🥗 Smart Recipe</h1>
+        <p> Login to Continue</p>
+
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Enter Email" required>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+            <button type="submit">Sign In</button>
+        </form>
+
+        <p>Don't have an account?
+            <a href="#" 
+            onclick="showPage('signupPage')">Create Account</a>
+        </p>
+    </div>
+</section>
+
+<!-- SIGNUP PAGE -->
+<section id="signupPage" class="auth-page hidden">
+    <div class="auth-box">
+        <h1>Create Account</h1>
+        <p>Join Smart Recipe Today!</p>
+
+        <form id="signupForm">
+            <input type="text" id="signupName" placeholder="Full Name" required>
+            <input type="email" id="signupEmail" placeholder="Email Address" required>
+            <input type="password" id="signupPassword" placeholder="Create Password" required minlength="6">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account?
+            <a href="#" onclick="showPage('loginPage')">Sign In</a>
+        </p>
+    </div>
+</section>
+
+<!-- MAIN WEBSITE -->
+<div id="mainWebsite" class="hidden">
+
+<header>
+    <div class="logo">🥗 Smart Recipe</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#scanner">Find Recipe</a>
+        <a href="#popular">Recipes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Smart Recipe</h1>
+        <h2>Discover Delicious Recipes From Your Vegetables!</h2>
+        <p>Upload your vegetable photo and discover what delicious food you can prepare.</p>
+        <a href="#scanner" class="main-btn">Explore Recipes</a>
+    </div>
+</section>
+
+<!-- SCANNER -->
+<section id="scanner" class="scanner">
+    <h1>Vegetable Recipe Scanner</h1>
+    <p>Upload a picture of your vegetables to discover recipes.</p>
+
+    <div class="upload-box">
+        <input type="file" id="vegetableImage" accept="image/*">
+        <img id="preview" class="preview hidden" alt="Vegetable preview">
+        <br>
+        <button onclick="findRecipe()">Find Recipe</button>
+    </div>
+
+    <div id="recipeResult"></div>
+</section>
+
+<!-- POPULAR RECIPES -->
+<section id="popular" class="popular">
+    <h1>Popular Recipes</h1>
+    <p>Explore some delicious vegetable recipes.</p>
+
+    <div class="recipe-grid">
+
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600" alt="Vegetable salad">
+            <h2>Vegetable Salad</h2>
+            <p>Fresh and healthy vegetable salad.</p>
+            <button onclick="showPopularRecipe('salad')">View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600" alt="Vegetable soup">
+            <h2>Vegetable Soup</h2>
+            <p>Healthy and tasty vegetable soup.</p>
+            <button onclick="showPopularRecipe('soup')">View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600" alt="Healthy bowl">
+            <h2>Healthy Bowl</h2>
+             <p>Nutritious mixed vegetable bowl.</p>
+            <button onclick="showPopularRecipe('bowl')">View Recipe</button>
+        </div>
+
+        <div class="recipe-card">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600" alt="Vegetable pasta">
+            <h2>Vegetable Pasta</h2>
+            <p>Delicious vegetable pasta.</p>
+            <button onclick="showPopularRecipe('pasta')">View Recipe</button>
+        </div>
+
+    </div>
+    <div id="popularResult"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h1>About Smart Recipe</h1>
+    <p>
+        Smart Recipe is a recipe suggestion website designed to help
+        users prepare delicious food using vegetables available at home.
+        Users can upload vegetable images and explore suitable recipe ideas.
+        Our goal is to make cooking easy, simple and enjoyable.
+    </p>
+
+    <div class="features">
+        <div>
+            <h2>📷 Easy Upload</h2>
+            <p>Upload your vegetable image easily.</p>
+        </div>
+        <div>
+            <h2>🍲 Recipe Ideas</h2>
+            <p>Discover different food recipes.</p>
+        </div>
+        <div>
+            <h2>⏰ Save Time</h2>
+            <p>Find simple cooking ideas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h1>Contact Us</h1>
+    <p>Have any questions? Contact us.</p>
+
+    <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="contactMessage"></p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>🥗 Smart Recipe</h2>
+    <p>Make Cooking Easy and Enjoyable!</p>
+    <p>© 2026 Smart Recipe. All Rights Reserved.</p>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
